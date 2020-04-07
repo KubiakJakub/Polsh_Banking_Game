@@ -1,18 +1,17 @@
+import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class getjason extends StatelessWidget {
-
-
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: DefaultAssetBundle.of(context).loadString("key"),
+      future: DefaultAssetBundle.of(context).loadString("assets/questions.json"),
       builder: (context, snapshot){
-        var mydata = jsonDecode(snapshot.data.toString());
-        if(mydata != null){
+        var mydata = json.decode(snapshot.data.toString());
+        if(mydata == null){
           return Scaffold(
             body: Center(
               child: Text(
@@ -21,7 +20,7 @@ class getjason extends StatelessWidget {
             ),
           );
         }else{
-          return quizpage();
+          return quizpage(mydata : mydata);
         }
       },
     );
@@ -30,29 +29,103 @@ class getjason extends StatelessWidget {
 
 
 class quizpage extends StatefulWidget {
+
+  var mydata;
+  quizpage({Key key, @required this.mydata}) : super(key : key);
+
+
   @override
-  _quizpageState createState() => _quizpageState();
+  _quizpageState createState() => _quizpageState(mydata);
 }
 
 class _quizpageState extends State<quizpage> {
 
-  Widget choicebutton(){
+  var mydata;
+  _quizpageState(this.mydata);
+
+  Color showColor = Colors.indigoAccent;
+  Color right = Colors.greenAccent;
+  Color wrong = Colors.redAccent;
+  int marks = 0;
+  int i = 1;
+  int timer = 30;
+  String showTimer = "30";
+
+  Map<String, Color> btn_color = {
+    "a": Colors.indigoAccent,
+    "b": Colors.indigoAccent,
+    "c": Colors.indigoAccent,
+    "d": Colors.indigoAccent
+  };
+
+  @override
+  void initState(){
+    startTimer();
+    super.initState();
+  }
+
+  void startTimer() async{
+    const onesec = Duration(seconds: 1);
+    Timer.periodic(onesec, (Timer t){
+      setState(() {
+        if(timer < 1){
+          t.cancel();
+        }else{
+          timer = timer - 1;
+        }
+        showTimer = timer.toString();
+      });
+    });
+  }
+
+  void nextQuestion(){
+    setState(() {
+      if(i < 5){
+        i++;
+      }else{
+
+      }
+      btn_color['a'] = Colors.indigoAccent;
+      btn_color['b'] = Colors.indigoAccent;
+      btn_color['c'] = Colors.indigoAccent;
+      btn_color['d'] = Colors.indigoAccent;
+    });
+  }
+
+
+
+  void checkanswer(String key){
+    if(mydata[2]["1"] == mydata[1]["1"][key]){
+      marks = marks + 5;
+      showColor = right;
+    }else{
+      showColor = wrong;
+    }
+    setState(() {
+      btn_color[key] = showColor;
+    });
+    Timer(Duration(seconds: 2), nextQuestion);
+  }
+
+
+  Widget choicebutton(String key){
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
       ),
       child: MaterialButton(
-        onPressed: (){},
+        onPressed: () => checkanswer(key),
         child: Text(
-          "Option 1",
+          mydata[1][i.toString()][key],
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Lato-Regular",
-            fontSize: 16.0,
+            fontSize: 14.0,
           ),
+          maxLines: 1,
         ),
-        color: Colors.indigoAccent,
+        color: btn_color[key],
         minWidth: 200.0,
         height: 40.0,
     ),
@@ -61,45 +134,76 @@ class _quizpageState extends State<quizpage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 3,
-            child:  Container(
-              padding: EdgeInsets.all(15.0),
-              alignment: Alignment.bottomLeft,
+    return WillPopScope(
+      onWillPop: (){
+        return showDialog(context: context, builder: (context) => AlertDialog(
+          title: Text(
+            "Quiz app",
+          ),
+          content: Text(
+            "You cen't go back"
+          ),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
               child: Text(
-                "Sample questioooooon :)",
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontFamily: "Lato-Regular",
+                "ok"
+              ),
+            )
+          ],
+        ),);
+      },
+      child: Scaffold(
+        body: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 3,
+              child:  Container(
+                padding: EdgeInsets.all(15.0),
+                alignment: Alignment.bottomLeft,
+                child: Text(
+                  mydata[0][i.toString()],
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontFamily: "Lato-Regular",
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 6,
-            child:  Container(
-              child: Column(
-                children: <Widget>[
-                  choicebutton(),
-                  choicebutton(),
-                  choicebutton(),
-                  choicebutton()
-                ],
+            Expanded(
+              flex: 6,
+              child:  Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    choicebutton('a'),
+                    choicebutton('b'),
+                    choicebutton('c'),
+                    choicebutton('d')
+                  ],
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child:  Container(
-              decoration: BoxDecoration(
-                color: Colors.teal,
+            Expanded(
+              flex: 1,
+              child:  Container(
+                alignment: Alignment.topCenter,
+                child: Center(
+                  child: Text(
+                    showTimer,
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w700,
+                      fontFamily: 'Times New Roman',
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
