@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quizapp/resultpage.dart';
 
 class getjason extends StatelessWidget {
 
@@ -58,6 +59,8 @@ class _quizpageState extends State<quizpage> {
     "d": Colors.indigoAccent
   };
 
+  bool cancel_timer = false;
+
   @override
   void initState(){
     startTimer();
@@ -70,6 +73,8 @@ class _quizpageState extends State<quizpage> {
       setState(() {
         if(timer < 1){
           t.cancel();
+        }else if(cancel_timer == true){
+          t.cancel();
         }else{
           timer = timer - 1;
         }
@@ -79,17 +84,22 @@ class _quizpageState extends State<quizpage> {
   }
 
   void nextQuestion(){
+    cancel_timer = false;
+    timer = 30;
     setState(() {
       if(i < 5){
         i++;
       }else{
-
+        Navigator.of(context).pushReplacement(MaterialPageRoute(
+          builder: (context) => resultpage(),
+        ));
       }
       btn_color['a'] = Colors.indigoAccent;
       btn_color['b'] = Colors.indigoAccent;
       btn_color['c'] = Colors.indigoAccent;
       btn_color['d'] = Colors.indigoAccent;
     });
+    startTimer();
   }
 
 
@@ -103,6 +113,7 @@ class _quizpageState extends State<quizpage> {
     }
     setState(() {
       btn_color[key] = showColor;
+      cancel_timer = true;
     });
     Timer(Duration(seconds: 2), nextQuestion);
   }
