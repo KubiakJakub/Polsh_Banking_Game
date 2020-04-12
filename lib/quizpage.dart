@@ -73,6 +73,7 @@ class _quizpageState extends State<quizpage> {
       setState(() {
         if(timer < 1){
           t.cancel();
+          nextQuestion();
         }else if(cancel_timer == true){
           t.cancel();
         }else{
