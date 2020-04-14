@@ -9,7 +9,7 @@ class getjason extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: DefaultAssetBundle.of(context).loadString("assets/questions.json"),
+      future: DefaultAssetBundle.of(context).loadString("assets/true_false_questions.json"),
       builder: (context, snapshot){
         var mydata = json.decode(snapshot.data.toString());
         if(mydata == null){
@@ -40,14 +40,14 @@ class quizpage extends StatefulWidget {
 }
 
 class _quizpageState extends State<quizpage> {
-
+// =============== U S E R   D E F I N E D   V E R I A B L E S ===============
   var mydata;
   _quizpageState(this.mydata);
 
   Color showColor = Colors.indigoAccent;
   Color right = Colors.greenAccent;
   Color wrong = Colors.redAccent;
-  int marks = 0;
+  int points = 0;
   int i = 1;
   int timer = 30;
   String showTimer = "30";
@@ -61,6 +61,7 @@ class _quizpageState extends State<quizpage> {
 
   bool cancel_timer = false;
 
+// =============== C U S T O M    F U N C T I O N S ===============
   @override
   void initState(){
     startTimer();
@@ -88,11 +89,11 @@ class _quizpageState extends State<quizpage> {
     cancel_timer = false;
     timer = 30;
     setState(() {
-      if(i < 5){
+      if(i < 20){
         i++;
       }else{
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => resultpage(),
+          builder: (context) => resultpage(points: points),
         ));
       }
       btn_color['a'] = Colors.indigoAccent;
@@ -106,8 +107,8 @@ class _quizpageState extends State<quizpage> {
 
 
   void checkanswer(String key){
-    if(mydata[2]["1"] == mydata[1]["1"][key]){
-      marks = marks + 5;
+    if(mydata[2][i.toString()] == mydata[1][i.toString()][key]){
+      points = points + 1;
       showColor = right;
     }else{
       showColor = wrong;
@@ -120,6 +121,7 @@ class _quizpageState extends State<quizpage> {
   }
 
 
+// =============== W I D G E  T S ===============
   Widget choicebutton(String key){
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -150,10 +152,10 @@ class _quizpageState extends State<quizpage> {
       onWillPop: (){
         return showDialog(context: context, builder: (context) => AlertDialog(
           title: Text(
-            "Quiz app",
+            "Quiz NBP",
           ),
           content: Text(
-            "You cen't go back"
+            "Nie możesz się teraz cofnąć"
           ),
           actions: <Widget>[
             FlatButton(

@@ -21,10 +21,10 @@ class _splashscreenState extends State<splashscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.indigo,
+      backgroundColor: Color(0xff04BF55),
       body: Center(
         child: Text(
-          "Quiz app",
+          "Quiz NBP",
           style: TextStyle(
             fontSize: 50.0,
             color: Colors.white,

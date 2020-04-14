@@ -8,15 +8,16 @@ class homepage extends StatefulWidget {
 }
 
 class _homepageState extends State<homepage> {
-
+// =============== U S E R   D E F I N E D   V E R I A B L E S ===============
   List<String> images = [
-    "images/image.png",
+    "images/true_false_image.jpg",
     "images/image.png",
     "images/image.png",
     "images/image.png",
     "images/image.png"
   ];
 
+// =============== W I D G E  T S ===============
   Widget customcard(String category, String image){
     return Padding(
       padding: EdgeInsets.all( 20.0),
@@ -26,10 +27,11 @@ class _homepageState extends State<homepage> {
             builder: (context) => getjason(),
           ));
         },
+        // KATEGORIA
         child: Material(
-          color: Colors.blueAccent,
-          elevation:  10.0,
-          borderRadius: BorderRadius.circular(20.0),
+          color: Colors.white,
+          elevation:  0.0,
+          borderRadius: BorderRadius.circular(30.0),
           child: Container(
             child: Column(
               children: <Widget>[
@@ -38,8 +40,8 @@ class _homepageState extends State<homepage> {
                     vertical: 10,
                   ),
                   child:  Material(
-                    elevation: 5.0,
-                    borderRadius: BorderRadius.circular(100.0),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(30.0),
                     child:  Container(
                       height: 200.0,
                       width: 200.0,
@@ -54,24 +56,27 @@ class _homepageState extends State<homepage> {
                     ),
                   ),
                 ),
+                // NAZWA KATEGORII
                 Center(
                   child: Text(
                     category,
                     style: TextStyle(
                       fontSize: 20.0,
-                      color: Colors.white,
+                      color: Colors.black87,
                       fontFamily: "Lato-Regular"
                     ),
                   ),
                 ),
+                // OPIS
                 Container(
                   padding: EdgeInsets.all(20.0),
                   child: Text(
-                    "This is a example description",
+                    "Zadania w których występpują tylko dwie odpowiedzi na pytanie,"
+                        " prawa lub fałsz.",
                     style: TextStyle(
                       fontSize: 16.0,
                       fontFamily: "Lato-Italic",
-                      color: Colors.white,
+                      color: Colors.black45,
                     ),
                     maxLines: 5,
                     textAlign: TextAlign.justify,
@@ -85,6 +90,8 @@ class _homepageState extends State<homepage> {
     );
   }
 
+
+  // Zablokowanie orientacji w pionie
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -92,9 +99,12 @@ class _homepageState extends State<homepage> {
     ]);
 
     return Scaffold(
+      backgroundColor: Color(0xff36BF7F),
       appBar: AppBar(
+        backgroundColor: Color(0xff36BF7F),
+        elevation: 0.0,
         title: Text(
-          "Quiz app",
+          "Quiz NBP",
           style: TextStyle(
             fontFamily: "Lato-Bold",
           ),
@@ -102,7 +112,8 @@ class _homepageState extends State<homepage> {
       ),
       body: ListView(
         children: <Widget>[
-          customcard("Category 1", images[0]),
+          // nazwa kategorii, grafika
+          customcard("Prawda / Fałsz", images[0]),
           customcard("Category 2", images[1]),
           customcard("Category 3", images[2]),
           customcard("Category 4", images[3]),
