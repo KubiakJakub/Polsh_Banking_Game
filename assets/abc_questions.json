@@ -1,0 +1,148 @@
+[
+  {
+    "1": "Kadencja Rady Polityki Pieniężnej trwa",
+    "2": "Bank centralny ma wpływ na",
+    "3": "Narodowy Bank Polski",
+    "4": "Pasywne funkcje banków to",
+    "5": "Aktywne funkcje banków to",
+    "6": "Aby otworzyć bank należy posiadać",
+    "7": "Zysk bankowy wynika z",
+    "8": "Zmniejszenie obiegu pieniężnego następuje w sytuacji",
+    "9": "Powiększenie kwoty rezerwy obowiązkowej banków",
+    "10":"Nadzór nad całym rynkiem finansowym sprawuje",
+    "11":"Polityka pieniężna polegająca na zwiększaniu podaży pieniądza, co prowadzi do wzrostu popytu na produkty",
+    "12":"W skład Rady Polityki Pieniężnej wchodzi oprócz prezesa NBP",
+    "13":"Podniesienie stóp procentowych  przez NBP prowadzi do",
+    "14":"RRSO oznacza",
+    "15":"Krótkookresowe finansowanie przez bank dostaw towarów to",
+    "16":"Spread walutowy to",
+    "17":"Karty kredytowe zostały po raz pierwszy wprowadzone przez bank",
+    "18":"Udzielanie kredytów możliwe jest jedynie przez",
+    "19":"Największym Bankiem działającym w Polsce obecnie jest",
+    "20":"Największym bankiem w Europie jest"
+  },
+  {
+    "1": {
+      "a": "4 lata",
+      "b": "5 lat ",
+      "c": "6 lat"
+    },
+    "2": {
+      "a": "Wysokość deficytu państwa",
+      "b": "Politykę kredytową",
+      "c": "Wysokość podatków"
+    },
+    "3": {
+      "a": "Wprowadza do obiegu banknoty i monety",
+      "b": "Ustala ilość pieniądza na rynku",
+      "c": "Obie odpowiedz są poprawne"
+    },
+    "4": {
+      "a": "Gromadzeni wkładów na żądanie",
+      "b": "Terminowe wkłady oszczędnościowe",
+      "c": "Obie odpowiedzi są poprawne"
+    },
+    "5": {
+      "a": "Terminowe wkłady oszczędnościowe",
+      "b": "Rachunki a Vista",
+      "c": "Udzielanie kredytów"
+    },
+    "6": {
+      "a": "Licencje od NBP",
+      "b": "Licencje od państwa",
+      "c": "Zezwolenie od Rady Państwa"
+    },
+    "7": {
+      "a": "Różnicy miedzy odsetkami uzyskanymi przez bank od kredytobiorców a płaconym właścicielom wkładów terminowych.",
+      "b": "Stopy inflacji",
+      "c": "Ilości udzielanych kredytów"
+    },
+    "8": {
+      "a": "Gdy Bank Centralny oferuje do sprzedaży mniej papierów, niż wykupuje.",
+      "b": "Gdy Bank Centralny oferuje do sprzedaży więcej papierów niż wykupuje",
+      "c": "Żadna z podanych informacji nie jest prawidłowa"
+    },
+    "9": {
+      "a": "Zmniejsza ich zdolności kredytów",
+      "b": "Zwiększa ich zdolności kredytowe",
+      "c": "Nie ma wpływu na zdolności kredytowe"
+    },
+    "10": {
+      "a": "Bankowy Fundusz Gwarancyjny",
+      "b": "Komisja Nadzoru finansowego",
+      "c": "Bankowa Rezerwa Państwowa"
+    },
+    "11": {
+      "a": "Polityką ekspansywną",
+      "b": "Polityka restrykcyjną",
+      "c": "Żadna z podanych odpowiedzi nie jest poprawna"
+    },
+    "12": {
+      "a": "9 członków",
+      "b": "10 członków",
+      "c": "4 członków"
+    },
+    "13": {
+      "a": "Wzrostu oprocentowania kredytów",
+      "b": "Spadku podaży pieniądza",
+      "c": "Obie odpowiedzi są poprawne"
+    },
+    "14": {
+      "a": "Rzeczywistą Roczną Stopę Oprocentowania",
+      "b": "Rzeczywistą Rezerwę Stopy Obowiązkowej",
+      "c": "Rzeczywiste Roczne Stawki obowiązkowe"
+    },
+    "15": {
+      "a": "Kredyt obrotowy",
+      "b": "Faktoring",
+      "c": "Kredyt konsumpcyjny"
+    },
+    "16": {
+      "a": "Długoterminowy kredyt walutowy",
+      "b": "Różnica między kursem kupna a kursem sprzedaży danej waluty",
+      "c": "Dostosowanie kredytu do rodzimej waluty (jego zamiana)"
+    },
+    "17": {
+      "a": "Szwajcarski",
+      "b": "Niemiecki",
+      "c": "Nowojorski"
+    },
+    "18": {
+      "a": "Banki",
+      "b": "Firmy pożyczkowe",
+      "c": "Obie odpowiedzi są poprawne"
+    },
+    "19": {
+      "a": "Bank PKO",
+      "b": "Bank PeKao",
+      "c": "Santander Bank Polska"
+    },
+    "20": {
+      "a": "Deutsche Bank",
+      "b": "PNB Paribas",
+      "c": "Credit Suisse"
+    }
+  },
+  {
+    "1": "6 lat",
+    "2": "Politykę kredytową",
+    "3": "Obie odpowiedz są poprawne",
+    "4": "Obie odpowiedzi są poprawne",
+    "5": "Udzielanie kredytów",
+    "6": "Licencje od NBP",
+    "7": "Różnicy miedzy odsetkami uzyskanymi przez bank od kredytobiorców a płaconym właścicielom wkładów terminowych.",
+    "8": "Gdy Bank Centralny oferuje do sprzedaży więcej papierów niż wykupuje",
+    "9": "Zmniejsza ich zdolności kredytów",
+    "10": "Komisja Nadzoru finansowego",
+    "11": "Polityką ekspansywną",
+    "12": "9 członków ",
+    "13": "Obie odpowiedzi są poprawne",
+    "14": "Rzeczywistą Roczną Stopę Oprocentowania",
+    "15": "Faktoring",
+    "16": "Różnica między kursem kupna a kursem sprzedaży danej waluty",
+    "17": "Nowojorski",
+    "18": "Banki",
+    "19": "Bank PKO",
+    "20": "Deutsche Bank"
+  }
+]
