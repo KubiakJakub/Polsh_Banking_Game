@@ -9,6 +9,7 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
 // =============== U S E R   D E F I N E D   V E R I A B L E S ===============
+// zdjecia kategoii
   List<String> images = [
     "images/true_false_image.jpg",
     "images/image.png",
@@ -17,14 +18,20 @@ class _homepageState extends State<homepage> {
     "images/image.png"
   ];
 
+  // opisy kategorii
+  List<String> descriptions = [
+    "Zadania w których występpują tylko dwie odpowiedzi na pytanie, prawa lub fałsz.",
+    "Zadania w których masz 3 możliwe odpowiedzi a, b lub c."
+  ];
+
 // =============== W I D G E  T S ===============
-  Widget customcard(String category, String image){
+  Widget customcard(String category, String description, String image){
     return Padding(
       padding: EdgeInsets.all( 20.0),
       child: InkWell(
         onTap: (){
           Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (context) => getjason(),
+            builder: (context) => getjason(category),
           ));
         },
         // KATEGORIA
@@ -71,8 +78,7 @@ class _homepageState extends State<homepage> {
                 Container(
                   padding: EdgeInsets.all(20.0),
                   child: Text(
-                    "Zadania w których występpują tylko dwie odpowiedzi na pytanie,"
-                        " prawa lub fałsz.",
+                    description,
                     style: TextStyle(
                       fontSize: 16.0,
                       fontFamily: "Lato-Italic",
@@ -113,11 +119,11 @@ class _homepageState extends State<homepage> {
       body: ListView(
         children: <Widget>[
           // nazwa kategorii, grafika
-          customcard("Prawda / Fałsz", images[0]),
-          customcard("Category 2", images[1]),
-          customcard("Category 3", images[2]),
-          customcard("Category 4", images[3]),
-          customcard("Category 5", images[4]),
+          customcard("Prawda / Fałsz",descriptions[0] , images[0]),
+          customcard("Wielokrotnego wyboru",descriptions[1] , images[1]),
+          customcard("Category 3", "", images[2]),
+          customcard("Category 4", "", images[3]),
+          customcard("Category 5","", images[4]),
         ],
       ),
     );

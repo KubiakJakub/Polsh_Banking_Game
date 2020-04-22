@@ -6,10 +6,26 @@ import 'package:quizapp/resultpage.dart';
 
 class getjason extends StatelessWidget {
 
+  String category_name;
+  getjason(this.category_name);
+  String asset_to_load;
+
+  setasset() {
+    if (category_name == "Prawda / Fałsz"){
+      asset_to_load = "assets/true_false_questions.json";
+    } else if (category_name == 'Wielokrotnego wyboru'){
+      asset_to_load = 'assets/abc_questions.json';
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
+    setasset();
+
     return FutureBuilder(
-      future: DefaultAssetBundle.of(context).loadString("assets/true_false_questions.json"),
+      future: DefaultAssetBundle.of(context).loadString(asset_to_load, cache: true),
       builder: (context, snapshot){
         var mydata = json.decode(snapshot.data.toString());
         if(mydata == null){
@@ -195,7 +211,7 @@ class _quizpageState extends State<quizpage> {
                     choicebutton('a'),
                     choicebutton('b'),
                     choicebutton('c'),
-                    choicebutton('d')
+                   // choicebutton('d')
                   ],
                 ),
               ),
