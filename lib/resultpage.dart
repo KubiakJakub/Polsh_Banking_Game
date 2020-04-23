@@ -11,9 +11,9 @@ class resultpage extends StatefulWidget {
 class _resultpageState extends State<resultpage> {
 // =============== U S E R   D E F I N E D   V E R I A B L E S ===============
   List<String> images = [
-    "images/image.png",
-    "images/image.png",
-    "images/image.png"
+    "images/great.jpg",
+    "images/no_bad.jpg",
+    "images/bad.jpg"
   ];
   String message;   // Wiadomość przy wyniku
   String image;   // Grafika przy wyniku
@@ -26,16 +26,16 @@ class _resultpageState extends State<resultpage> {
   void initState(){
     if(points < 10){
       image = images[2];
-      message = "Failure is success in progress\n" +
-          "Your score: $points";
+      message = "\"Nawet szczęśliwe numery nie zawsze wygrywają.\" ~ J.R.R Tolkien\n" +
+          "Wynik: $points";
     }else if(points < 17){
       image = images[1];
-      message = "Not Bad! Mistakes are the portals of discovery\n" +
-          "Your score: $points";
+      message = "\"Jutrzejsze bitwy wygrywa się dzisiejszą pracą\" ~ Mohamed Hanif\n" +
+          "Wynik: $points";
     }else{
       image = images[0];
-      message = "Great! Success isn’t permanent and failure isn’t fatal\n" +
-          "Your score: $points";
+      message = "\"Być zwyciężonym i nie ulec to zwycięstwo, zwyciężyć i spocząć na laurach – to klęska\" ~ Józef Piłsudski\n" +
+          "\nWynik: $points";
     }
     super.initState();
   }
@@ -44,25 +44,24 @@ class _resultpageState extends State<resultpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Result",
-        ),
-      ),
+//      appBar: AppBar(
+//        title: Text(
+//          "Result",
+//        ),
+//      ),
       body: Column(
         children: <Widget>[
           Expanded(
             flex: 10,
             child: Material(
-              elevation: 3.0,
+              elevation: 0.0,
               child: Container(
-
                 child: Column(
                   children: <Widget>[
                     Material(
                       child: Container(
                         width: 200.0,
-                        height: 200.0,
+                        height: 250.0,
                         child: ClipRect(
                           child: Image(
                             image:  AssetImage(
@@ -93,7 +92,7 @@ class _resultpageState extends State<resultpage> {
             ),
           ),
           Expanded(
-            flex: 4,
+            flex: 3,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -104,7 +103,7 @@ class _resultpageState extends State<resultpage> {
                     ));
                   },
                   child: Text(
-                    "Continue",
+                    "Kontynuuj ",
                     style: TextStyle(
                       fontSize: 18.0,
                     ),
@@ -113,8 +112,8 @@ class _resultpageState extends State<resultpage> {
                     vertical: 10.0,
                     horizontal: 25.0,
                   ),
-                  borderSide: BorderSide(width: 2.0, color: Colors.indigoAccent),
-                  splashColor: Colors.indigoAccent,
+                  borderSide: BorderSide(width: 2.0, color: Color(0xff36BF7F)),
+                  splashColor: Color(0xff36BF7F),
                 )
               ],
             ),

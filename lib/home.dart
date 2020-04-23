@@ -12,7 +12,7 @@ class _homepageState extends State<homepage> {
 // zdjecia kategoii
   List<String> images = [
     "images/true_false_image.jpg",
-    "images/image.png",
+    "images/close_questions.png",
     "images/image.png",
     "images/image.png",
     "images/image.png"
@@ -51,7 +51,7 @@ class _homepageState extends State<homepage> {
                     borderRadius: BorderRadius.circular(30.0),
                     child:  Container(
                       height: 200.0,
-                      width: 200.0,
+                      width: 300.0,
                       child: ClipOval(
                         child: Image(
                           fit: BoxFit.cover,
@@ -121,9 +121,7 @@ class _homepageState extends State<homepage> {
           // nazwa kategorii, grafika
           customcard("Prawda / Fałsz",descriptions[0] , images[0]),
           customcard("Wielokrotnego wyboru",descriptions[1] , images[1]),
-          customcard("Category 3", "", images[2]),
-          customcard("Category 4", "", images[3]),
-          customcard("Category 5","", images[4]),
+          customcard("O aplikacji", "", images[2])
         ],
       ),
     );

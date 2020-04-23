@@ -50,7 +50,6 @@ class quizpage extends StatefulWidget {
   var mydata;
   quizpage({Key key, @required this.mydata}) : super(key : key);
 
-
   @override
   _quizpageState createState() => _quizpageState(mydata);
 }
@@ -148,16 +147,17 @@ class _quizpageState extends State<quizpage> {
         onPressed: () => checkanswer(key),
         child: Text(
           mydata[1][i.toString()][key],
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Lato-Regular",
             fontSize: 14.0,
           ),
-          maxLines: 1,
+          maxLines: 5,
         ),
         color: btn_color[key],
-        minWidth: 200.0,
-        height: 40.0,
+        minWidth: 300.0,
+        height: 70.0,
     ),
     );
   }
