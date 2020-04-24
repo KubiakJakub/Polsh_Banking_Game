@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/home.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class resultpage extends StatefulWidget {
   int points;
@@ -18,6 +19,7 @@ class _resultpageState extends State<resultpage> {
   String message;   // Wiadomość przy wyniku
   String image;   // Grafika przy wyniku
   int points;    // liczba zdobytych punktów
+  String result;
 
 
   _resultpageState(this.points);
@@ -26,16 +28,16 @@ class _resultpageState extends State<resultpage> {
   void initState(){
     if(points < 10){
       image = images[2];
-      message = "\"Nawet szczęśliwe numery nie zawsze wygrywają.\" ~ J.R.R Tolkien\n" +
-          "Wynik: $points";
+      message = "\"Nawet szczęśliwe numery nie zawsze wygrywają.\" ~ J.R.R Tolkien\n";
+      result = "\nWynik: $points";
     }else if(points < 17){
       image = images[1];
-      message = "\"Jutrzejsze bitwy wygrywa się dzisiejszą pracą\" ~ Mohamed Hanif\n" +
-          "Wynik: $points";
+      message = "\"Jutrzejsze bitwy wygrywa się dzisiejszą pracą\" ~ Mohamed Hanif\n";
+      result = "\nWynik: $points";
     }else{
       image = images[0];
-      message = "\"Być zwyciężonym i nie ulec to zwycięstwo, zwyciężyć i spocząć na laurach – to klęska\" ~ Józef Piłsudski\n" +
-          "\nWynik: $points";
+      message = "\"Być zwyciężonym i nie ulec to zwycięstwo, zwyciężyć i spocząć na laurach – to klęska\" ~ Józef Piłsudski\n";
+      result = "\nWynik: $points";
     }
     super.initState();
   }
@@ -60,11 +62,13 @@ class _resultpageState extends State<resultpage> {
                   children: <Widget>[
                     Material(
                       child: Container(
-                        width: 200.0,
-                        height: 250.0,
+                        margin: const EdgeInsets.only(top: 30.0),
+                        width: 800.w,
+                        height: 800.h,
                         child: ClipRect(
                           child: Image(
                             image:  AssetImage(
+
                               image
                             ),
                           ),
@@ -78,9 +82,9 @@ class _resultpageState extends State<resultpage> {
                       ),
                       child: Center(
                         child: Text(
-                          message,
+                          message + result,
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: ScreenUtil().setSp(70),
                             fontFamily: 'Lato-Regular',
                           ),
                         ),
@@ -105,12 +109,13 @@ class _resultpageState extends State<resultpage> {
                   child: Text(
                     "Kontynuuj ",
                     style: TextStyle(
-                      fontSize: 18.0,
+                      fontSize: ScreenUtil().setSp(60),
+                      letterSpacing: 1.5,
                     ),
                   ),
                   padding: EdgeInsets.symmetric(
-                    vertical: 10.0,
-                    horizontal: 25.0,
+                    vertical: 50.w,
+                    horizontal: 65.h,
                   ),
                   borderSide: BorderSide(width: 2.0, color: Color(0xff36BF7F)),
                   splashColor: Color(0xff36BF7F),

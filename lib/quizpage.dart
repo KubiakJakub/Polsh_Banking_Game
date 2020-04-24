@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quizapp/resultpage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class getjason extends StatelessWidget {
 
@@ -21,7 +22,6 @@ class getjason extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     setasset();
 
     return FutureBuilder(
@@ -151,13 +151,13 @@ class _quizpageState extends State<quizpage> {
           style: TextStyle(
             color: Colors.white,
             fontFamily: "Lato-Regular",
-            fontSize: 14.0,
+            fontSize: ScreenUtil().setSp(45),
           ),
           maxLines: 5,
         ),
         color: btn_color[key],
-        minWidth: 300.0,
-        height: 70.0,
+        minWidth: 1000.w,
+        height: 200.h,
     ),
     );
   }
@@ -196,14 +196,15 @@ class _quizpageState extends State<quizpage> {
                 child: Text(
                   mydata[0][i.toString()],
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: ScreenUtil().setSp(90),
                     fontFamily: "Lato-Regular",
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ),
             Expanded(
-              flex: 6,
+              flex: 5,
               child:  Container(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

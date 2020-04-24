@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quizapp/quizpage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class homepage extends StatefulWidget {
   @override
   _homepageState createState() => _homepageState();
 }
 
+
 class _homepageState extends State<homepage> {
+
 // =============== U S E R   D E F I N E D   V E R I A B L E S ===============
+
 // zdjecia kategoii
   List<String> images = [
     "images/true_false_image.jpg",
@@ -26,6 +30,7 @@ class _homepageState extends State<homepage> {
 
 // =============== W I D G E  T S ===============
   Widget customcard(String category, String description, String image){
+    ScreenUtil.init(context);
     return Padding(
       padding: EdgeInsets.all( 20.0),
       child: InkWell(
@@ -50,8 +55,10 @@ class _homepageState extends State<homepage> {
                     elevation: 0.0,
                     borderRadius: BorderRadius.circular(30.0),
                     child:  Container(
-                      height: 200.0,
-                      width: 300.0,
+                      height: 800.h,
+                      width: 900.w,
+//                      height: ScreenUtil().setHeight(50),
+//                      width: ScreenUtil().setHeight(50),
                       child: ClipOval(
                         child: Image(
                           fit: BoxFit.cover,
@@ -68,7 +75,8 @@ class _homepageState extends State<homepage> {
                   child: Text(
                     category,
                     style: TextStyle(
-                      fontSize: 20.0,
+                      //fontSize: ScreenUtil().setSp(90),
+                        fontSize: 90.sp,
                       color: Colors.black87,
                       fontFamily: "Lato-Regular"
                     ),
@@ -80,7 +88,7 @@ class _homepageState extends State<homepage> {
                   child: Text(
                     description,
                     style: TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 50.sp,
                       fontFamily: "Lato-Italic",
                       color: Colors.black45,
                     ),
@@ -100,6 +108,7 @@ class _homepageState extends State<homepage> {
   // Zablokowanie orientacji w pionie
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitDown, DeviceOrientation.portraitUp
     ]);
@@ -107,12 +116,15 @@ class _homepageState extends State<homepage> {
     return Scaffold(
       backgroundColor: Color(0xff36BF7F),
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Color(0xff36BF7F),
         elevation: 0.0,
         title: Text(
           "Quiz NBP",
           style: TextStyle(
             fontFamily: "Lato-Bold",
+            fontSize: 70.sp,
+//              fontSize: 22.0,
           ),
         ),
       ),
